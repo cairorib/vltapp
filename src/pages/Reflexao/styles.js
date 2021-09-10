@@ -85,16 +85,16 @@ export default StyleSheet.create({
     },
 
     linhaImg:{
-        height:70,
-        width:70,
+        height:47,
+        width:'100%',
         
-        marginRight:20,
+        //marginRight:10,
          
     },  
     itemDaLista:{
        
         borderRadius:8,
-        padding:5,
+       // padding:5,
         backgroundColor:'#D9D9D9',
         margin:10,
         justifyContent:'flex-start',

@@ -8,7 +8,7 @@ import HeaderImg from '../../assets/inspiration.png';
 import axios from 'axios';
 import styles from './styles';
  
- 
+  
 export default function Reflexao(){
 
     const navigation = useNavigation();
@@ -38,22 +38,22 @@ export default function Reflexao(){
                     renderItem={({item:msg})=>(
                     
                         <View style={styles.listaMsg}>
-                            
-                            
-                                <View style={styles.itemDaLista}>  
-                                    <Image source={linhaImg} style={styles.linhaImg}/>
-                                    
-                                       
-                                        <TouchableOpacity
+                             
+                             <TouchableOpacity
                                                 style={styles.detailsButton}
                                                 onPress={()=> Linking.openURL(msg.url) }
                                         >
-                                           <Text style={styles.itemName}>{`\n${msg.description}`}  </Text>
+                                <View style={styles.itemDaLista}>  
+                                    <Image source={{uri:`${msg.imagem}`}} style={styles.linhaImg}/>
+                                    
+                                       
+                                       
+                                           
                                             
-                                        </TouchableOpacity>
+                                        
                                    
                                 </View>
-                                
+                                </TouchableOpacity>
                             
                             
                         </View>

@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text,SafeAreaView,Image } from 'react-native';
 import { DrawerContentScrollView,DrawerItemList,DrawerItem} from '@react-navigation/drawer';
 import linhaImg from '../assets/pessoas.jpg';
+import logodrawer from '../assets/logodrawer.png';
 import styles from '../componentDrower/styles.js'; 
 import AppLoading   from 'expo-app-loading';
 /* import {useFonts,Inter_600SemiBold} from '@expo-google-fonts/inter'; 
@@ -26,7 +27,7 @@ function customDrawer(props){
         <SafeAreaView style={styles.SafeArea}>
             <View style={styles.ViewHeader}>
                 <Image source={linhaImg} style={styles.Image} />
-                <Text style={styles.title}>VLT METROPOLITANO</Text>
+                <Image source={logodrawer} style={styles.logodrawer} />
             </View>
             <DrawerContentScrollView {...props} > 
             

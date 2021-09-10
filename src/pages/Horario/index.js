@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, Image, Text,TouchableOpacity, FlatList } from 'react-native';
+import {View, Image, Text,TouchableOpacity, FlatList, Alert, Linking} from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
 import styles from './styles';
@@ -7,16 +7,17 @@ import axios from 'axios';
 import {AdMobBanner } from 'expo-ads-admob';
 import backBtn from '../../assets/backBtn.png';
 
-import linhaImg from '../../assets/train.png';
+import linhaImg from '../../assets/tremchegada.png';
 
  
 export default function Horario(){
 
-    const navigation = useNavigation();
+    const navigation = useNavigation(); 
 
     const route = useRoute();
 
     const [horario, setHorario]= useState([]);
+    const [endereco, setEndereco]= useState([]);
 
     const info = route.params.estacao;
 
@@ -28,19 +29,25 @@ export default function Horario(){
     navigation.goBack();
 }
 
+   
+
     async function buscaHorariosDeEstacao(){
 
-        try{    const response =  await axios.get(`http://192.168.0.6/vlt/index.php/Api/buscaHorarioEstacao/${linha}/${sentido}/${estacao}`); 
+        try{    const response =  await axios.get(`http://192.168.0.6/sistemavlt/index.php/Api/buscaHorarioEstacao/${linha}/${sentido}/${estacao}`); 
 
             setHorario(response.data['dados']);
-         /*    console.log(response.data); */
-
+          /*   console.log(response.data); */
+            setEndereco(response.data['endereco']);
+            console.log(response.data);
+         
         }catch(error){
             console.log(error);
-            alert('erro de conexão');
+            alert('Verifique sua conexao com a internet');
         }
     }
 
+    
+ 
     function navigateToEstacao(){
         navigation.navigate('Estacao');
     }
@@ -54,7 +61,7 @@ export default function Horario(){
              <View >
                 <AdMobBanner
                 bannerSize="fullBanner"
-                adUnitID="ca-app-pub-6660984130044244/7058801940"  
+                adUnitID="ca-app-pub-6660984130044244/8104692206"  
                 setTestDeviceIDAsync
                 servePersonalizedAds  
                 onDidFailToReceiveAdWithError={ (err)=>  console.log} />
@@ -64,7 +71,7 @@ export default function Horario(){
                     
                     <Image source={linhaImg} style={styles.linhaImg}/>
                    
-                    <Text style={styles.textHeader}>HORÁRIOS</Text>
+                    <Text style={styles.textHeader}>HORÁRIOS DA ESTAÇÃO {`\n${estacao.replace(/_/g," ")}\nSENTIDO ${sentido.replace(/_/g," ")}`} </Text>
                 </View>
 
             
@@ -77,7 +84,23 @@ export default function Horario(){
                         <View style={styles.listaLinhas}>
                             <TouchableOpacity
                             style={styles.detailsButton}
-                            onPress={()=>{}}
+                            onPress={()=>
+                                Alert.alert(
+                                    `INFORMAÇÕES:`,
+                                    `Estacao:\n${horario.estacao.replace(/_/g," ")}\n\nLinha:\n${horario.linha}\n\nSentido:\n${horario.sentido.replace(/_/g," ")}\n\n\n${endereco[0]['info']}\n\nEndereco:\n${endereco[0]['address']}`,
+                                    [
+                                      {
+                                        text: "Como Chegar",
+                                        
+                                        onPress: () => {Linking.openURL(`${endereco[0]['url']}`)},
+                                        style: "cancel"
+                                      },
+                                      { text: "OK", onPress: () => console.log("OK Pressed") }
+                                    ],
+                                    { cancelable: false }
+                                  )  
+                            
+                            }
                             >
                             
                                 <View style={styles.itemDaLista}>

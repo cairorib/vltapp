@@ -6,7 +6,7 @@ import styles from './styles';
 import axios from 'axios';
 import {AdMobBanner } from 'expo-ads-admob';
 import backBtn from '../../assets/backBtn.png';
-import linhaImg from '../../assets/station.png'; 
+import linhaImg from '../../assets/station2.png'; 
 
  
 export default function Estacao(){
@@ -25,14 +25,14 @@ export default function Estacao(){
 
     async function buscaEstacoesDaLinha(){
        
-        try {const response= await axios.get(`http://192.168.0.6/vlt/index.php/Api/verEstacaoLinha/${linha}/${sentido}`);
+        try {const response= await axios.get(`http://vltapp.tech/index.php/Api/verEstacaoLinha/${linha}/${sentido}`);
          
         setEstacao(response.data['dados']);
           /* console.log(response.data); */
          
         } catch (error){
             console.log(error);
-          alert('verifique conexao com o internet') 
+          alert('Verifique sua conexao com a internet') 
         }
  
     }
@@ -55,7 +55,7 @@ export default function Estacao(){
              <View >
                 <AdMobBanner
                 bannerSize="fullBanner"
-                adUnitID="ca-app-pub-6660984130044244/7058801940"  
+                adUnitID="ca-app-pub-6660984130044244/8104692206"  
                 setTestDeviceIDAsync
                 servePersonalizedAds  
                 onDidFailToReceiveAdWithError={ (err)=>  console.log} />

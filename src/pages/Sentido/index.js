@@ -23,7 +23,7 @@ export default function Sentido(){
     let linha= info.nome;
    /*  console.log(name); */
 
-    function navigationBack(){
+    function navigationBack(){ 
         navigation.goBack();
     }
 
@@ -35,14 +35,14 @@ export default function Sentido(){
     
     async function sentidosLinha(){
        
-        try {const response= await axios.get(`http://192.168.0.6/vlt/index.php/Api/verSentidoLinha/${linha}`);
+        try {const response= await axios.get(`http://vltapp.tech/index.php/Api/verSentidoLinha/${linha}`);
            
         setSentido(response.data['dados']);
         /*   console.log(sentido); */
          
         } catch (error){
             console.log(error);
-          alert('verifique conexao com o internet') 
+          alert('Verifique sua conexao com a internet') 
         }
  
     }
@@ -58,7 +58,7 @@ export default function Sentido(){
             <View >
                 <AdMobBanner
                 bannerSize="fullBanner"
-                adUnitID="ca-app-pub-6660984130044244/7058801940"  
+                adUnitID="ca-app-pub-6660984130044244/8104692206"  
                 setTestDeviceIDAsync
                 servePersonalizedAds  
                 onDidFailToReceiveAdWithError={ (err)=>  console.log} />

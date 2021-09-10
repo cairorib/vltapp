@@ -121,7 +121,9 @@ export default StyleSheet.create({
     btnUrl:{
         backgroundColor:'#257beF',
         padding:15,
-        margin:50,
+        marginTop:50,
+        marginLeft:50,
+        marginRight:50,
         borderRadius:10,
         alignItems:'center',
     },

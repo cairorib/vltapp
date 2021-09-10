@@ -10,27 +10,39 @@ export default StyleSheet.create({
         flexDirection:'row',
         justifyContent:'space-between',
         alignItems:'center',
-        height:300,
-        marginTop:-30,
-        marginBottom:-80,
+        height:200,
+        //marginTop:-30,
+        //marginBottom:-75,
     },
 
     logo:{
         width:'100%',
-        height:'80%',
+        height:'100%',
+    }, 
+    
+    banner:{
+        width:'100%',
+        height:'100%',
+      //  borderRadius:10,
     },  
 
     listaMenuHeader:{
-        backgroundColor:'#339ac8', 
-        paddingBottom:10,
+        backgroundColor:'#FFF', 
+       
+       width:300,
+        
         
     },
 
     itemDaListaMenuHeader:{
-        height:100,
-        width:220,
+        height:'100%',
+        width:'100%',
         borderRadius:10,
-        margin:10,
+         
+        marginLeft:5,
+        marginRight:5,         
+        marginTop:3,
+         
         alignItems:'center',
         backgroundColor:'#FFF',
     },
@@ -91,7 +103,7 @@ export default StyleSheet.create({
         borderRadius:8,
         padding:5,
         backgroundColor:'#D9D9D9',
-        margin:10,
+        marginTop:10,
         justifyContent:'flex-start',
         flexDirection:'row',
          
@@ -105,5 +117,13 @@ export default StyleSheet.create({
         fontStyle:'italic',
         fontWeight:'bold',
     },
+
+    backgroundVideo: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        bottom: 0,
+        right: 0,
+      },
    
 });

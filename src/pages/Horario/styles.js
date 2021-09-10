@@ -69,7 +69,7 @@ export default StyleSheet.create({
     },
     textHeader:{
         fontWeight:'bold',
-        fontSize:20,
+        fontSize:15,
         color:'#FFF',
         
     },

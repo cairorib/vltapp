@@ -25,6 +25,12 @@ export default StyleSheet.create({
         width:'100%',
         
     },
-
+    logodrawer:{
+        height:'19%',
+        width:'50%',
+        marginLeft:'20%',
+        marginBottom:-70, 
+        
+    },
 
 });
